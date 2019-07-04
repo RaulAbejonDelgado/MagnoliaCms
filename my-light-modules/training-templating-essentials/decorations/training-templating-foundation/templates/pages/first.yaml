@@ -1,0 +1,5 @@
+areas:
+  main:
+    availableComponents:
+      twoColumns:
+        id: training-templating-essentials:components/twoColumns
