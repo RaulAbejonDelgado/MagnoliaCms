@@ -1,0 +1,6 @@
+form:
+  tabs:
+    - name: tabMain
+      fields:
+        - name: title
+          required: true
