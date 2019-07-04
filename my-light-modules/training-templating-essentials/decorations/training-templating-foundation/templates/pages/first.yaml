@@ -3,3 +3,5 @@ areas:
     availableComponents:
       twoColumns:
         id: training-templating-essentials:components/twoColumns
+      documentDownloadList:
+        id: training-templating-essentials:components/documentDownloadList

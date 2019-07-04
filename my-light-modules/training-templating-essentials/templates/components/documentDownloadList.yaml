@@ -1,0 +1,4 @@
+title: Document Download List
+renderType: freemarker
+dialog: training-templating-essentials:components/documentDownloadList
+templateScript: /training-templating-essentials/templates/components/documentDownloadList.ftl
