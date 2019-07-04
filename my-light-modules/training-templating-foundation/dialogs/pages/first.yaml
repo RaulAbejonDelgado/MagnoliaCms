@@ -1,0 +1,26 @@
+form:
+  label: First Page Dialog
+  tabs:
+    - name: tabMain
+      label: Page Content
+      fields:
+ 
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Page Title
+          description: Define the Page's title.
+ 
+        - name: abstract
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Abstract
+          description: Add an Abstract of the Page.
+          rows: 10
+          maxLength: 600
+ 
+actions:
+  commit:
+    label: save changes
+    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
+  cancel:
+    label: cancel
+    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition

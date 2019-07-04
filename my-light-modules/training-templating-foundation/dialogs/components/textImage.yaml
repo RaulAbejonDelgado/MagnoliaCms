@@ -1,0 +1,35 @@
+form:
+  label: Text and Image
+  tabs:
+    - name: tabMain
+      label: Main
+      fields:
+       
+        - name: headline
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Headline
+          description: Enter a headline
+
+        - name: text
+          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          label: Text
+          description: Enter some text here
+
+        - name: imageLink
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Image Link
+          description: Choose an Image from the Assets App.
+          appName: assets
+          targetWorkspace: dam
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+ 
+actions:
+  commit:
+    label: save changes
+    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
+  cancel:
+    label: cancel
+    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition

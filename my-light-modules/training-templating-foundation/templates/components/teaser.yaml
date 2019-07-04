@@ -1,0 +1,4 @@
+title: Teaser
+renderType: freemarker
+dialog: training-templating-foundation:components/teaser
+templateScript: /training-templating-foundation/templates/components/teaser.ftl

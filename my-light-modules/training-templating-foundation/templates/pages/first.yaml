@@ -1,0 +1,12 @@
+title: Training - My First Page
+renderType: freemarker
+dialog: training-templating-foundation:pages/first
+templateScript: /training-templating-foundation/templates/pages/first.ftl
+areas:
+  main:
+    type: list
+    availableComponents:
+      textImage:
+        id: training-templating-foundation:components/textImage
+      teaser:
+        id: training-templating-foundation:components/teaser
