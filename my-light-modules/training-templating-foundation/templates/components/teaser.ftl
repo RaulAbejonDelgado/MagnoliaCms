@@ -16,7 +16,7 @@
              
             [#-- An optional possible extends: Trying also to get an image from the target page. --]
              
-            <a href="${cmsfn.link(targetPage)!}">Read On</a>
+            <a href="${cmsfn.link(targetPage)!}">${i18n['teaser.link.readon']}</a>
              
         </div>
     [#elseif cmsfn.editMode]

@@ -4,3 +4,4 @@ form:
       fields:
         - name: title
           required: true
+          i18n: true

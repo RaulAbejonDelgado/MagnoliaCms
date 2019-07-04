@@ -2,10 +2,15 @@ title: Two Columns
 renderType: freemarker
 dialog: training-templating-essentials:components/twoColumns
 templateScript: /training-templating-essentials/templates/components/twoColumns.ftl
-
+parameters:
+  divColLeft: col-sm-7
+  divColRight: col-sm-5
+ 
+ 
 areas:
   leftColumn:
     type: list
+    templateScript: /training-templating-essentials/templates/components/twoColumnsArea.ftl
     availableComponents:
       textImage:
         id: training-templating-foundation:components/textImage
@@ -14,6 +19,7 @@ areas:
    
   rightColumn:
     type: list
+    templateScript: /training-templating-essentials/templates/components/twoColumnsArea.ftl
     availableComponents:
       textImage:
         id: training-templating-foundation:components/textImage

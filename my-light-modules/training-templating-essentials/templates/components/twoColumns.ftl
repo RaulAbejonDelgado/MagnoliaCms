@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-sm-6">
+    <div class="${def.parameters.divColLeft!"col-sm-6"}">
         <div class="panel panel-default">
             <div class="panel-heading">${content.titleLeft!}</div>
             <div class="panel-body">
@@ -7,7 +7,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6">
+    <div class="${def.parameters.divColRight!"col-sm-6"}">
         <div class="panel panel-default">
             <div class="panel-heading">${content.titleRight!}</div>
             <div class="panel-body">
