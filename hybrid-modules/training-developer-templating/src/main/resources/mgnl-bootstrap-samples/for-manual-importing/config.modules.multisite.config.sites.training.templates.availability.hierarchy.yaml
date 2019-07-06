@@ -1,0 +1,26 @@
+'hierarchy': 
+  'enabled': 'true'
+  'levelsEnabled': 'true'
+  'parentsEnabled': 'false'
+  'levels': 
+    '1': 'training-templating-website:pages/home'
+    '2': 'training-templating-website:pages/default; training-events-contentapp:pages/events'
+    '3': 'training-templating-website:pages/default; training-templating-website:pages/special'
+    '4-6': 'training-templating-website:pages/default'
+  'levels-typeBased-Example': 
+    '1': 'training-home'
+    '2': 'default; events'
+    '3': 'default; special'
+    '4-6': 'default'
+  'parents': 
+    'training-events-contentapp@pages+events': 'training-templating-website:pages/home; training-templating-website:pages/default'
+    'training-templating-website@pages+default': 'training-templating-website:pages/home; training-templating-website:pages/default'
+    'training-templating-website@pages+home': 'ROOT'
+    'training-templating-website@pages+special': 'training-templating-website:pages/default'
+  'parents-typeBased-Example': 
+    'default': 'training-home; default'
+    'events': 'training-home; default'
+    'special': 'default'
+    'training-home': 'ROOT'
+
+

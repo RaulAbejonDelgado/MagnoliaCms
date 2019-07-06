@@ -1,0 +1,4 @@
+title: Contacts via JS Model
+templateScript: /training-templating-intermediate/templates/components/contacts.ftl
+renderType: freemarker
+modelClass: info.magnolia.module.jsmodels.rendering.JavascriptRenderingModel

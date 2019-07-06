@@ -1,0 +1,24 @@
+form:
+  label: Automatic Document Link List
+  tabs:
+    - name: tabMain
+      label: Target Document Folder
+      fields:
+       
+        - name: targetNode
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Document Folder
+          description:  Choose a document folder to link to.
+          required: true
+          appName: assets
+          targetWorkspace: dam
+          identifierToPathConverter:
+            class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter
+ 
+actions:
+  commit:
+    label: save changes
+    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
+  cancel:
+    label: cancel
+    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition

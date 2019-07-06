@@ -1,0 +1,9 @@
+title: Training - Templating Intermediate
+renderType: freemarker
+dialog: training-templating-intermediate:pages/first
+#templateScript: /training-templating-foundation/templates/pages/first.ftl
+areas:
+  main:
+    availableComponents:
+      recursivePageLinkList:
+        id: training-templating-intermediate:components/recursivePageLinkList

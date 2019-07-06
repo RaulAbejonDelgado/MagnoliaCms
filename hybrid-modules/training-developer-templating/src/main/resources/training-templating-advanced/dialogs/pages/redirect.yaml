@@ -1,0 +1,20 @@
+form:
+  label: Redirect
+  tabs:
+    - name: tabRedirect
+      label: Redirect To
+      fields:
+        - name: path
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Redirect to Page
+          description: Link to a Page to redirect to. Leave empty and first child will be used automatically.
+          targetWorkspace: website
+          appName: pages
+ 
+actions:
+  commit:
+    label: save changes
+    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
+  cancel:
+    label: cancel
+    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition

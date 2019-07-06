@@ -1,0 +1,7 @@
+areas:
+  main:
+    availableComponents:
+      recursivePageLinkList:
+        id: training-templating-intermediate:components/recursivePageLinkList
+      jsContacts:
+        id: training-templating-intermediate:components/contacts

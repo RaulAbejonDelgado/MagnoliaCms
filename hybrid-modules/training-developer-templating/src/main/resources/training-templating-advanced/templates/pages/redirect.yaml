@@ -1,0 +1,5 @@
+title: Training - Redirect Template
+renderType: freemarker
+dialog: training-templating-advanced:pages/redirect
+templateScript: /training-templating-advanced/templates/pages/redirect.ftl
+modelClass: info.magnolia.training.developer.templating.advanced.templates.components.RedirectPageModel

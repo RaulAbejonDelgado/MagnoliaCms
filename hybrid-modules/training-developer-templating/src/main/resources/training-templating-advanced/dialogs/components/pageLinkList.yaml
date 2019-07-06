@@ -1,0 +1,24 @@
+form:
+ 
+  label: Automatic Page Link List
+  tabs:
+    - name: tabMain
+      label: Target Page
+      fields:
+        - name: targetNode
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: Page
+          description: Choose a page to link to.
+          required: true
+          appName: pages
+          targetWorkspace: website
+          identifierToPathConverter:
+            class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter
+ 
+actions:
+  commit:
+    label: save changes
+    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
+  cancel:
+    label: cancel
+    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition

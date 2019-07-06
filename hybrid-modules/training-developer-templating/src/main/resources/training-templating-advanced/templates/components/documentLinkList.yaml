@@ -1,0 +1,8 @@
+title: Automatic Document Link List - Using a Java Model
+renderType: freemarker
+dialog: training-templating-advanced:components/documentLinkList
+templateScript: /training-templating-advanced/templates/components/autoLinkList.ftl
+modelClass: info.magnolia.training.developer.templating.advanced.templates.components.AutoLinkListModel
+class: info.magnolia.training.developer.templating.advanced.templates.components.AutoLinkListDefinition
+nodeType: mgnl:asset
+workspace: dam
