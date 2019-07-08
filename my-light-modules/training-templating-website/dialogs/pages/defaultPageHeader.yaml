@@ -1,0 +1,26 @@
+form:
+  label: Default Page Header Dialog
+  tabs:
+    - name: tabMain
+      label: Page Content
+      fields:
+ 
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Page Title
+          description: Define the Page's title.
+          required: true
+ 
+        - name: abstract
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Abstract
+          description: Add an Abstract of the Page.
+          rows: 5        
+ 
+actions:
+  commit:
+    label: save changes
+    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
+  cancel:
+    label: cancel
+    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition

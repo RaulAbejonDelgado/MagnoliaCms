@@ -1,0 +1,6 @@
+title: Training - Home Page
+type: training-home
+renderType: site
+areas:
+  footer:
+    editable: true

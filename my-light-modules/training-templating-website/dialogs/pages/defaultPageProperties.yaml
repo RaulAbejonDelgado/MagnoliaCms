@@ -1,0 +1,28 @@
+form:
+  label: Default Page Properties Dialog
+  tabs:
+    - name: tabMeta
+      label: Page Meta Data
+      fields:
+       
+        - name: keywords
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Keywords
+          description: The keywords used in the html header in the meta tag 'meta name=keywords'.
+          rows: 3
+          i18n: true
+           
+        - name: description
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Description
+          description: The description used in the html header in the meta tag 'meta name=description'. Fallback is the page's abstract.
+          rows: 5
+          i18n: true         
+ 
+actions:
+  commit:
+    label: save changes
+    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
+  cancel:
+    label: cancel
+    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition

@@ -1,0 +1,5 @@
+# The module version is always equal to the Magnolia version the training material bases on.
+version: 5.6.7
+dependencies:
+  training-templating-foundation:
+    version: 5.6.7/*

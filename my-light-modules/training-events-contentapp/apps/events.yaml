@@ -1,0 +1,297 @@
+label: Events
+icon: icon-datepicker
+appClass: info.magnolia.ui.contentapp.ContentApp
+class: info.magnolia.ui.api.app.registry.ConfiguredAppDescriptor
+subApps:
+  browser:
+    label: Events
+    subAppClass: info.magnolia.ui.contentapp.browser.BrowserSubApp
+    class: info.magnolia.ui.contentapp.browser.BrowserSubAppDescriptor
+    contentConnector:
+      includeProperties: false
+      workspace: events
+      rootPath: /
+      defaultOrder: jcrName
+      nodeTypes:
+        - icon: icon-node-content
+          name: event
+          strict: true
+        - icon: icon-folder-l
+          name: mgnl:folder
+          strict: true
+    imageProvider:
+      originalImageNodeName: photo
+      imageProviderClass: info.magnolia.ui.imageprovider.DefaultImageProvider
+      class: info.magnolia.ui.imageprovider.definition.ConfiguredImageProviderDefinition
+    workbench:
+      dropConstraintClass: info.magnolia.ui.workbench.tree.drop.AlwaysTrueDropConstraint
+      editable: true
+      contentViews:
+        - name: tree
+          class: info.magnolia.ui.workbench.tree.TreePresenterDefinition
+          columns:
+            - name: jcrName
+              sortable: true
+              label: Event name
+              propertyName: jcrName
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+            - name: status
+              label: Status
+              width: 45
+              sortable: true
+              displayInChooseDialog: false
+              formatterClass: info.magnolia.ui.workbench.column.StatusColumnFormatter
+              class: info.magnolia.ui.workbench.column.definition.StatusColumnDefinition
+            - name: moddate
+              label: Modification date
+              width: 160
+              sortable: true
+              displayInChooseDialog: false
+              formatterClass: info.magnolia.ui.workbench.column.DateColumnFormatter
+              propertyName: mgnl:lastModified
+              class: info.magnolia.ui.workbench.column.definition.MetaDataColumnDefinition
+    actions:
+      addFolder:
+        label: Add folder
+        icon: icon-add-folder
+        class: info.magnolia.ui.framework.action.AddFolderActionDefinition
+        availability:
+          writePermissionRequired: true
+          root: true
+          nodeTypes:
+            folder: mgnl:folder
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      editFolder:
+        label: Rename folder
+        dialogName: ui-framework:folder
+        icon: icon-edit
+        class: info.magnolia.ui.framework.action.OpenEditDialogActionDefinition
+        availability:
+          root: true
+          writePermissionRequired: true
+          nodeTypes:
+            folder: mgnl:folder
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      addEvent:
+        subAppId: detail
+        label: Add Event
+        icon: icon-add-item
+        nodeType: event
+        appName: events
+        class: info.magnolia.ui.contentapp.detail.action.CreateItemActionDefinition
+        availability:
+          writePermissionRequired: true
+          root: true
+          nodeTypes:
+            folder: mgnl:folder
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      editEvent:
+        subAppId: detail
+        label: Edit Event
+        icon: icon-edit
+        appName: events
+        class: info.magnolia.ui.contentapp.detail.action.EditItemActionDefinition
+        availability:
+          writePermissionRequired: true
+          nodeTypes:
+            event: event
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      renameEvent:
+        label: Rename Event
+        icon: icon-edit
+        dialogName: ui-framework:folder
+        class: info.magnolia.ui.framework.action.OpenEditDialogActionDefinition
+        availability:
+          writePermissionRequired: true
+          nodeTypes:
+            event: event
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      delete:
+        label: Delete
+        asynchronous: true
+        command: markAsDeleted
+        icon: icon-delete
+        class: info.magnolia.ui.framework.action.MarkNodeAsDeletedActionDefinition
+        availability:
+          writePermissionRequired: true
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      activate:
+        command: activate
+        icon: icon-publish
+        catalog: versioned
+        class: info.magnolia.ui.framework.action.ActivationActionDefinition
+        availability:
+          writePermissionRequired: true
+      activateRecursive:
+        catalog: versioned
+        command: activate
+        icon: icon-publish-incl-sub
+        recursive: true
+        class: info.magnolia.ui.framework.action.ActivationActionDefinition
+        availability:
+          writePermissionRequired: true
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      deactivate:
+        catalog: versioned
+        command: deactivate
+        icon: icon-unpublish
+        class: info.magnolia.ui.framework.action.ActivationActionDefinition
+        availability:
+          writePermissionRequired: true
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      export:
+        command: export
+        icon: icon-export
+        class: info.magnolia.ui.framework.action.ExportActionDefinition
+        availability:
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+      import:
+        dialogName: ui-admincentral:import
+        icon: icon-import
+        class: info.magnolia.ui.framework.action.OpenCreateDialogActionDefinition
+        availability:
+          writePermissionRequired: true
+          root: true
+          rules:
+            - name: IsNotDeletedRule
+              implementationClass: info.magnolia.ui.framework.availability.IsNotDeletedRule
+    actionbar:
+      sections:
+        - name: root
+          label: Events
+          availability:
+            nodes: false
+            root: true
+          groups:
+            - name: addActions
+              items:
+                - name: addEvent
+                - name: addFolder
+            - name: editActions
+              items:
+            - name: publishingActions
+              items:
+                - name: activate
+                - name: activateRecursive
+                - name: deactivate
+            - name: eximActions
+              items:
+                - name: export
+                - name: import
+        - name: folder
+          label: Folder
+          availability:
+            nodeTypes:
+              folder: mgnl:folder
+          groups:
+            - name: addActions
+              items:
+                - name: addEvent
+                - name: addFolder
+            - name: editActions
+              items:
+                - name: editFolder
+                - name: delete
+            - name: publishingActions
+              items:
+                - name: activate
+                - name: activateRecursive
+                - name: deactivate
+            - name: eximActions
+              items:
+                - name: export
+                - name: import
+        - name: event
+          label: Event
+          availability:
+            nodeTypes:
+              event: event
+          groups:
+            - name: addActions
+              items:
+                - name: addEvent
+                - name: addFolder
+            - name: editActions
+              items:
+                - name: editEvent
+                - name: renameEvent
+                - name: delete
+            - name: publishingActions
+              items:
+                - name: activate
+                - name: activateRecursive
+                - name: deactivate
+            - name: eximActions
+              items:
+                - name: export
+                - name: import
+  detail:
+    label: Event
+    subAppClass: info.magnolia.ui.contentapp.detail.DetailSubApp
+    class: info.magnolia.ui.contentapp.detail.DetailSubAppDescriptor
+    contentConnector:
+      defaultOrder: jcrName
+      includeProperties: false
+      rootPath: /
+      workspace: events
+      nodeTypes:
+        - icon: icon-node-content
+          name: event
+          strict: true
+        - icon: icon-folder-l
+          name: mgnl:folder
+          strict: true
+    editor:
+      nodeType:
+        icon: icon-items
+        name: event
+      form:
+        description: Define the event information
+        label: Edit event
+        tabs:
+          - name: event
+            label: Event
+            fields:
+              - label: Event  name
+                name: name
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                required: true
+              - name: Location
+                label: Location
+                class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+                required: true
+              - name: description
+                label: Description
+                class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+                required: true
+              - name: date
+                label: Date
+                class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+                required: true
+      actions:
+        - name: commit
+        - name: cancel
+    actions:
+      commit:
+        implementationClass: info.magnolia.ui.form.action.SaveFormAction
+        class: info.magnolia.ui.form.action.SaveFormActionDefinition
+      cancel:
+        class: info.magnolia.ui.form.action.CancelFormActionDefinition

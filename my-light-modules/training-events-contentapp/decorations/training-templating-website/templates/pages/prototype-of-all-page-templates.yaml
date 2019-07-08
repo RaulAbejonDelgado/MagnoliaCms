@@ -1,0 +1,5 @@
+areas:
+  main:
+    availableComponents:
+      eventsList:
+        id: training-events-contentapp:components/eventsList
