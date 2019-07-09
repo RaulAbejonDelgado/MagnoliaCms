@@ -7,7 +7,8 @@ import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.rendering.model.RenderingModel;
 import info.magnolia.rendering.model.RenderingModelImpl;
 import info.magnolia.rendering.template.configured.ConfiguredTemplateDefinition;
- 
+import info.magnolia.repository.RepositoryConstants;
+
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
@@ -67,8 +68,14 @@ public class AutoLinkListModel<RD extends ConfiguredTemplateDefinition> extends 
          * - Read here from the 'definition' object the workspace.
          * - If the workspace is empty, then return 'website' workspace. Hint: 'RepositoryConstants' interface provides workspace names.
          */
-    	
-        return "website";
+    	AutoLinkListDefinition ad = new AutoLinkListDefinition();
+    			
+		String workspace = ad.getWorkspace();
+        if (StringUtils.isEmpty(workspace)) {
+            workspace = RepositoryConstants.WEBSITE;
+        }
+        return workspace;
+
     }
  
     public ContentMap getTargetNode() {
