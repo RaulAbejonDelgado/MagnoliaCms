@@ -1,0 +1,5 @@
+title: Training - exmaples
+renderType: freemarker
+dialog: training-example:pages/training
+templateScript: /training-example/templates/pages/training.ftl
+modelClass: com.raul.casa.TrainingPageModel
