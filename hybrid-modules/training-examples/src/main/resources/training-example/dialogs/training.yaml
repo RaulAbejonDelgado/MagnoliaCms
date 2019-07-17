@@ -1,0 +1,20 @@
+form:
+  label: Training-example
+  tabs:
+    - name: tabTraining
+      label: Training
+      fields:
+        - name: path
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          label: training
+          description: Training
+          targetWorkspace: website
+          appName: pages
+
+actions:
+  commit:
+    label: save changes
+    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
+  cancel:
+    label: cancel
+    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition
