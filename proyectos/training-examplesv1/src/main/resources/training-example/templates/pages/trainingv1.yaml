@@ -1,0 +1,12 @@
+title: Training - exmaples v1
+renderType: freemarker
+dialog: training-example:pages/trainingv1
+templateScript: /training-example/templates/pages/trainingv1.ftl
+modelClass: com.raul.casa.TrainingPageModel
+
+#areas:
+#  main:
+#    type: list
+#    availableComponents:
+#      textImage:
+#        id: training-example:components/listadoOficinas
